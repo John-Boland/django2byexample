@@ -25,7 +25,7 @@ SECRET_KEY = 'nw(y6vnvb066$wy4v*e0zgr@1ow4d^r-aqr5$-51+6o)$j$j5%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -104,7 +104,20 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
 ]
+SOCIAL_AUTH_FACEBOOK_KEY = 'XXX' # Fake Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'XXX' # Fake Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email'] # Fake Facebook email
+
+SOCIAL_AUTH_TWITTER_KEY = 'XXX' # Fake Twitter App ID
+SOCIAL_AUTH_TWITTER_SECRET = 'XXX' # Fake Twitter App Secret
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'XXX' # Fake Google Consumer Key App ID
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XXX' # Fake Google Consumer Secret
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
