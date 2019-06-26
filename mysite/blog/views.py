@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from django.core.mail import send_mail
 
 from .models import Post
-from .forms import EmailPostForm
+from .forms import EmailPostForm, CommentForm
 
 class PostListView(ListView):
     queryset = Post.published.all()
