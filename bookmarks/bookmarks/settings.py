@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
+from django.urls import reverse_lazy
 
 import os
 
@@ -147,3 +148,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+ABSOLUTE_URL_OVERRIDES = {
+'auth.user': lambda u: reverse_lazy('user_detail',
+                                    args=[u.username])
+}
+
+THUMBNAIL_DEBUG = True
