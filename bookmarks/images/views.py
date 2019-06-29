@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import ImageCreateForm
 from .models import Image
 from common.decorators import ajax_required
-from action.utls import create_action
+from actions.utils import create_action
 
 
 
