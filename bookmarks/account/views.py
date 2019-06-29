@@ -6,9 +6,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
+from actions.utils import create_action
 from .forms import LoginForm, UserRegistrationForm, \
                    UserEditForm, ProfileEditForm
 from .models import Profile, Contact
+from actions.models import Action
 
 def user_login(request):
     if request.method == 'POST':
@@ -32,9 +34,19 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
+    # Display all actions by default
+    actions = Action.objects.exclude(user=request.user)
+    following_ids = request.user.following.values_list('id',
+                                                       flat=True)
+    if following_ids:
+        # If user is following others, retrieve only their actions
+        actions = actions.filter(user_id__in=following_ids)
+    actions = actions[:10]
+
     return render(request,
                   'account/dashboard.html',
-                  {'section': 'dashboard'})
+                  {'section': 'dashboard',
+                   'actions': actions})
 
 def register(request):
     if request.method == 'POST':
@@ -49,6 +61,7 @@ def register(request):
             new_user.save()
             # Create the User Profile
             Profile.objects.create(user=new_user)
+            create_action(new_user, 'has created an account')
 
             return render(request,
                           'account/register_done.html',
@@ -110,9 +123,9 @@ def user_follow(request):
         try:
             user = User.objects.get(id=user_id)
             if action == 'follow':
-                Contact.objects.get_or_create(
-                    user_from=request.user,
-                    user_to=user)
+                Contact.objects.get_or_create(user_from=request.user,
+                                              user_to=user)
+                create_action(request.user, 'is following', user)
             else:
                 Contact.objects.filter(user_from=request.user,
                                        user_to=user).delete()
