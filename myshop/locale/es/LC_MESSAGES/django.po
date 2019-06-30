@@ -8,44 +8,96 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-30 17:08-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2019-06-30 18:47-0500\n"
+"PO-Revision-Date: 2019-06-30 23:42+0000\n"
+"Last-Translator: b'  <johnboland91@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.3\n"
 
 #: cart/forms.py:9
 msgid "Quantity"
-msgstr ""
+msgstr "cantidad"
 
 #: coupons/forms.py:5
 msgid "Coupon"
-msgstr ""
+msgstr "cupón"
 
 #: myshop/settings.py:107
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: myshop/settings.py:108
 msgid "Spanish"
+msgstr "Español"
+
+#: myshop/urls.py:9
+msgid "admin/"
+msgstr ""
+
+#: myshop/urls.py:10
+msgid "cart/"
+msgstr ""
+
+#: myshop/urls.py:11
+msgid "orders/"
+msgstr ""
+
+#: myshop/urls.py:12
+msgid "payment/"
+msgstr ""
+
+#: myshop/urls.py:13
+#, fuzzy
+#| msgid "Coupon"
+msgid "coupons/"
+msgstr "cupón"
+
+#: payment/urls.py:8
+msgid "process/"
+msgstr ""
+
+#: payment/urls.py:9
+msgid "done/"
+msgstr ""
+
+#: payment/urls.py:10
+msgid "canceled/"
 msgstr ""
 
 #: shop/templates/shop/base.html:7 shop/templates/shop/base.html:12
-msgid "My Shop"
-msgstr ""
+msgid "My shop"
+msgstr "Mi tienda"
 
-#: shop/templates/shop/base.html:18
-msgid "Your cart:"
-msgstr ""
+#: shop/templates/shop/base.html:17
+msgid "Language"
+msgstr "Idioma"
 
-#: shop/templates/shop/base.html:27
+#: shop/templates/shop/base.html:33
+msgid "Your cart"
+msgstr "Su carrito"
+
+#: shop/templates/shop/base.html:35
+#, python-format
+msgid ""
+"\n"
+"                %(total_items)s item%(total_items_plural)s,\n"
+"                $%(total_price)s\n"
+"              "
+msgstr ""
+"\n"
+"    %(total_items)s producto%\n"
+"(total_items_plural)s,\n"
+"    $%(total_price)%"
+
+#: shop/templates/shop/base.html:41
 msgid "Your cart is empty."
 msgstr ""
 
-#: shop/templates/shop/product/detail.html:20
+#: shop/templates/shop/product/detail.html:21
 msgid "Add to cart"
 msgstr ""

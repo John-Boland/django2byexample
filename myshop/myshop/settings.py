@@ -29,8 +29,9 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
-
     'payment.apps.PaymentConfig',
+    'rosetta',
+    'parler',
 
 ]
 
@@ -108,6 +109,16 @@ LANGUAGES = (
     ('es', _('Spanish')),
 )
 
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'es'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
