@@ -47,7 +47,9 @@ class Cart(object):
         Iterate over the items in the cart and get the products
         from the database
         """
-        product_ids = Product.objects.filter(id__in=product_ids)
+        product_ids = self.cart.keys()
+
+        products = Product.objects.filter(id__in=product_ids)
 
         cart = self.cart.copy()
         for product in products:
