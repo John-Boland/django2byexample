@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'rosetta',
     'parler',
+    'localflavor',
 
 ]
 
@@ -77,6 +78,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1
 
 
 # Password validation
