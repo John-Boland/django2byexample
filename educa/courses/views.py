@@ -130,7 +130,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
         form = self.get_form(self.model,
                              instance=self.obj,
                              data=request.POST,
-                             files=request.files)
+                             files=request.FILES)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.owner = request.user
