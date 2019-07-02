@@ -197,13 +197,12 @@ class CourseListView(TemplateResponseMixin, View):
                                         'subject': subject,
                                         'courses': courses})
 
-class CourseDetailView(DeleteView):
+class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/course/detail.html'
 
     def get_context_data(self, **kwargs):
-        context = super(CourseDetailView,
-                        self).get_context_data(**kwargs)
+        context = super(CourseDetailView,self).get_context_data(**kwargs)
         context['enroll_form'] = CourseEnrollForm(
-                                    inirial={'course':self.object})
+                                    initial={'course':self.object})
         return context
